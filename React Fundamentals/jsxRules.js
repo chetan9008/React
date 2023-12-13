@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-function myFunction(){
+function myFunction() {
     console.log('hello console');
 }
 
