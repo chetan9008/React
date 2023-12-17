@@ -1,4 +1,4 @@
-/* .booklist {
+.booklist {
     width: 90vw;
     max-width: 1170px;
     margin: 5rem auto;
@@ -27,7 +27,7 @@
 .book h2 {
     margin-top: 1rem;
     font-size: 1rem;
-} */
+}
 
 
 .root h2 {
