@@ -19,9 +19,9 @@ let MoreDynamicSetup = () => {
     return <>
         {
             information.map((value) => {
-            let {author,title,edition} = value;
-            return <>
-                <Book title={title} author={author} edition={edition}/>
+                let { author, title, edition } = value;
+                return <>
+                    <Book title={title} author={author} edition={edition} />
                 </>
             })
         }
@@ -40,4 +40,4 @@ let Book = ({ author, title, edition }) => {
 
 let root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<MoreDynamicSetup/>);
+root.render(<MoreDynamicSetup />);

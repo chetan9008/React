@@ -19,9 +19,13 @@ let book = [
 
 let bookArray = book.map(
     (value) => {
-        let { title, img, author } = value;
         return <>
-            <Book title={title} author={author} img={img} />
+            {/* <article className="book">
+            <h2>{value.title}</h2>
+            <img src={value.img} alt={value.title} />
+            <h2>{value.author}</h2>
+            </article> */}
+            <Book title={value.title} author={value.author} img={value.img} />
         </>
     }
 )
@@ -32,7 +36,10 @@ function BookList() {
     return (
         <>
             <section className="booklist">
+                {/* <Book title ={book[0].author} author={book[0].title} img ={book[0].img}/>
+                <Book title={book[1].author} author={book[1].title} img={book[1].img} /> */}
                 {
+                    // name.map((value) => <h1>{value}</h1>)
                     bookArray
                 }
             </section>
