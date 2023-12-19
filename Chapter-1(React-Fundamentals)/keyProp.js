@@ -19,9 +19,15 @@ let book = [
     }
 ]
 
-let bookArray = book.map((value) => {
-    return <Book {...value} key={value.id} />
-})
+let bookArray = book.map(
+    (value) => {
+        let { title, img, author, id } = value;
+        console.log(id);
+        return <Book title={title} author={author} img={img} key={id} />
+    }
+)
+
+let name = ['chetan', 'gaurav', 'keshav'];
 
 function BookList() {
     return (
@@ -35,15 +41,18 @@ function BookList() {
     )
 }
 
-function Book({ img, author, title }) {
-    return <>
-        <article className="book">
-            <h2>{title}</h2>
-            <img src={img} alt={title} />
-            <h2>{author}</h2>
-        </article>
-    </>
+function Book({ author, title, img }) {
+    return (
+        <>
+            <article className="book">
+                <h2>{title}</h2>
+                <img src={img} alt={title} />
+                <h2>{author}</h2>
+            </article>
+        </>
+    )
 }
+
 
 
 
