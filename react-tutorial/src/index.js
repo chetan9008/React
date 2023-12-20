@@ -1,22 +1,40 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-function Form()
-{
+let object = [
+    {
+        author: 'Yasvant Kanetkar',
+        title: 'Let us c'
+    }, {
+        author: 'Yash Kanetkar',
+        title: 'Let us Java'
+    },
+]
+
+let BookList = () => {
+    return object.map((value,index)=>{
+        return <Book {...value} key={index}/>
+    })
+}
+
+let display = (parameter,aut)=>{
+console.log(parameter + aut);
+}
+
+let Book = ({author,title})=>{
     return <>
-    <h2>Simple Form</h2>
-    <input type='text' name='formInput' onChange={inputFunction}/><p></p>
-    <button onClick={buttonFunction}>Click me</button>
+        <h1>{author}</h1>
+        <button onClick={(e)=>{
+            console.log(e.target);
+            console.log(title);
+        }}>Click Me</button>
+        <p></p>
+        <button onClick={()=> display("again you",author)}>
+        Again You
+        </button>
+        <p>{title}</p>
     </>
 }
+let root = ReactDOM.createRoot(document.getElementById('root'));
 
-let inputFunction = ()=>{
-    console.log("Input Changed");
-}
-
-let buttonFunction = ()=>{
-    alert("Button is clicked");
-}
-let  root = ReactDOM.createRoot(document.getElementById('root'));
-
-root.render(<Form/>);
+root.render(<BookList></BookList>)
