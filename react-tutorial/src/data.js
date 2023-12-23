@@ -1,15 +1,25 @@
+import img1 from "./images/book1.jpg";
+import img2 from "./images/book2.jpg";
+import img3 from "./images/book3.jpg";
+
 let book = [
     {
         author: 'Jordan Moore',
         title: 'Interesting Facts For Curious Minds',
-        img: './images/book1.jpg',
+        img: img1,
         id: 1
     }
     , {
         author: 'James Clear',
         title: 'Atomic Habits',
-        img: 'https://images-na.ssl-images-amazon.com/images/I/81YkqyaFVEL._AC_UL600_SR600,400_.jpg'
+        img: img2
         , id: 2
+    }
+    , {
+        author: 'Stephen King',
+        title: 'Dad jokes',
+        img: img3
+        , id: 3
     }
 ]
 
@@ -20,4 +30,4 @@ let getBook = (id) => {
 
 export { book };
 
-export {getBook};
+export { getBook };
