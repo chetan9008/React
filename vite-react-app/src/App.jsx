@@ -1,34 +1,28 @@
-//useState
-import { useState } from 'react';
-import React from 'react';
-import { person } from './data';
-function App() {
-  let [ people, setPerson ] = React.useState(person);
-  let clearAll = ()=>{
-    setPerson([]);
-  }
-  let clearOne = (name)=>{
-    let items = people.filter((value)=> name.id !== value.id)
-    console.log(items);
-    setPerson(items);
-  }
+// useState John Example 
+
+import { useState } from "react"
+
+const App = () => {
   return (
-    <>
-      {people.map((value) => {
-        return <List {...value} key={value.id} clearOne={clearOne} value={value} />
-      })}
-      <button onClick={clearAll}>RemoveAll</button>
-    </>
+    <Person />
   )
 }
 
-let List = ({ name,clearOne,value }) => {
+let Person = () => {
+  let [name, setName] = useState('chetan');
+  let [Class, setClass] = useState('Bsc');
+  let [age, setAge] = useState(21);
+  let ChangeState = () => {
+    setName('Aman');
+    setAge(22);
+  }
   return <>
-    <p>{name}</p>
-    <button onClick={()=>{
-      clearOne(value)
-    }}>remove</button>
+    <h2>{name}</h2>
+    <h3>{Class}</h3>
+    <h4>{age}</h4>
+    <button className="btn" onClick={ChangeState}>Change</button>
   </>
 }
 
 export default App
+
