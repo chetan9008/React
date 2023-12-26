@@ -33,13 +33,12 @@ function classes() {
 
 }
 
-function arrowFunction()
-{
-    let arrowFun = ()=>{
+function arrowFunction() {
+    let arrowFun = () => {
         return "arrow";
     }
 
-    let arrowFunction = ()=> "arrow";
+    let arrowFunction = () => "arrow";
 
     let arrowFunction1 = name => "Hello " + name;
     let string = arrowFunction1("chetan");
@@ -48,29 +47,42 @@ function arrowFunction()
 
 // arrowFunction();
 
-let mapFunction = ()=> {
-    let array = [1,2,3];
+let mapFunction = () => {
+    let array = [1, 2, 3];
 
-    let anotherArray  = array.map((value)=> value+1 );
+    let anotherArray = array.map((value) => value + 1);
 
     console.log(anotherArray);
 }
 // mapFunction();
 
-let destructing = () =>{
-    let array = ['chetan','27','bsc'];
+let destructing = () => {
+    let array = ['chetan', '27', 'bsc'];
 
     // let [name,roll,course] = array;
 
     // console.log(course);
 
     let object = {
-        name:'chetan',
-        course:'bsc'
+        name: 'chetan',
+        course: 'bsc'
     }
 
-    let {name,course} = object;
+    let { name, course } = object;
 
     console.log(course);
 }
-destructing();
+// destructing();
+
+function setTimeoutExample() {
+    function Experiment() {
+        setTimeout(() => {
+            console.log("hello");
+        }, 5000);
+    }
+    Experiment();
+    Experiment();
+    Experiment();
+    Experiment();
+}
+// setTimeoutExample();

@@ -1,28 +1,19 @@
-// useState John Example 
-
 import { useState } from "react"
 
 const App = () => {
   return (
-    <Person />
-  )
+    <UseStateExample/>
+    )
 }
 
-let Person = () => {
-  let [name, setName] = useState('chetan');
-  let [Class, setClass] = useState('Bsc');
-  let [age, setAge] = useState(21);
-  let ChangeState = () => {
-    setName('Aman');
-    setAge(22);
-  }
+let UseStateExample = ()=>{
+  let [count,setCount] = useState(0);
   return <>
-    <h2>{name}</h2>
-    <h3>{Class}</h3>
-    <h4>{age}</h4>
-    <button className="btn" onClick={ChangeState}>Change</button>
+  <h1>{count}</h1>
+  <button className="btn" onClick={()=>{
+    count++;
+    console.log(count);
+  }}>Increase After 3 sec</button>
   </>
 }
-
 export default App
-
