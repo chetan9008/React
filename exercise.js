@@ -86,3 +86,19 @@ function setTimeoutExample() {
     Experiment();
 }
 // setTimeoutExample();
+
+function APIfetch(){
+    async function getData(){
+        try{
+
+            let result = await fetch('https://api.github.com/users');
+            let data = await result.json();
+            console.log(data);
+        }catch(error)
+        {
+            console.log(error);
+        }
+    }
+    getData();
+}
+APIfetch();
