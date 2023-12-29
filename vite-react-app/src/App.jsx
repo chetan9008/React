@@ -1,42 +1,41 @@
 import { useState, useEffect } from "react";
-
+const url = 'https://api.github.com/users/QuincyLarson';
 const App = () => {
   return (
-    <GitUsers />
+    <ChallangeConditionalRendering />
   )
 }
 
-let GitUsers = () => {
-  let [users, setUsers] = useState([]);
+let ChallangeConditionalRendering = () => {
+  let [user, setUser] = useState(null);
+  let [error, setError] = useState(false);
+  let [status, setStatus] = useState(true);
   useEffect(() => {
-    async function getData() {
+    let fetchDataFunction = async () => {
       try {
-        let result = await fetch('https://api.github.com/users')
+        let result = await fetch(url);
         let data = await result.json();
-        setUsers(data);
+        setUser(data);
+        console.log(user);
       } catch (error) {
+        setError(true);
         console.log(error);
       }
-    }
-    getData();
-  }, [])
-  console.log(users);
-  return <>
-    <h1>Users</h1>
-    {users.map((value, index) => {
-      let { avatar_url, id, login, html_url } = value;
-      return <Component {...value} key={id} />
-    })}
-  </>
-}
+      setStatus(false);
 
-let Component = ({ avatar_url, id, login, html_url }) => {
+    }
+    fetchDataFunction();
+  }, [])
+  if (status)
+    return <h2>Loading...</h2>
+  if (error)
+    return <h2>There is an error</h2>
+
   return <>
-    <img src={avatar_url}></img>
-    <p style={{ textAlign: 'center' }}>{login}</p>
-    <p style={{ textAlign: 'center' }}>
-      <a href={html_url} >Profile</a>
-    </p>
+    <h1>{user.name}</h1>
+    <img src={user.avatar_url} alt={user.name}></img>
+    <p>works at {user.company}</p>
+    <p>{user.bio}</p>
   </>
 }
 export default App
