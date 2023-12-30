@@ -87,18 +87,27 @@ function setTimeoutExample() {
 }
 // setTimeoutExample();
 
-function APIfetch(){
-    async function getData(){
-        try{
+function APIfetch() {
+    async function getData() {
+        try {
 
             let result = await fetch('https://api.github.com/users');
             let data = await result.json();
             console.log(data);
-        }catch(error)
-        {
+        } catch (error) {
             console.log(error);
         }
     }
     getData();
 }
-APIfetch();
+// APIfetch();
+
+function truthFalse() {
+    let x = 0, y = 1;
+    if (y && x)
+        console.log('truth');
+    else
+        console.log('false');
+
+}
+truthFalse();

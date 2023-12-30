@@ -1,41 +1,33 @@
 import { useState, useEffect } from "react";
-const url = 'https://api.github.com/users/QuincyLarson';
+import { url } from './../../Chapter-2(AdvanceReact)/13-Challenge(optimized)'
 const App = () => {
   return (
-    <ChallangeConditionalRendering />
+    <Component />
   )
 }
-
-let ChallangeConditionalRendering = () => {
-  let [user, setUser] = useState(null);
-  let [error, setError] = useState(false);
+let Component = () => {
+  let [user, setUser] = useState(0);
   let [status, setStatus] = useState(true);
+  let [error, setError] = useState(false);
+
   useEffect(() => {
-    let fetchDataFunction = async () => {
-      try {
-        let result = await fetch(url);
-        let data = await result.json();
-        setUser(data);
-        console.log(user);
-      } catch (error) {
+    let fetchFunction = async () => {
+      let result = await fetch(url)
+      console.log(result);
+      if (!result.ok) {
+        setStatus(false);
         setError(true);
-        console.log(error);
+        return;
       }
-      setStatus(false);
-
+      let data = await result.json();
+      setUser(data);
     }
-    fetchDataFunction();
+    fetchFunction();
   }, [])
-  if (status)
-    return <h2>Loading...</h2>
-  if (error)
-    return <h2>There is an error</h2>
-
+  let {name,avatar_url} = user;
   return <>
-    <h1>{user.name}</h1>
-    <img src={user.avatar_url} alt={user.name}></img>
-    <p>works at {user.company}</p>
-    <p>{user.bio}</p>
+    <h1>{name}</h1>
+    <img src={avatar_url}></img>
   </>
 }
 export default App
