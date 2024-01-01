@@ -1,25 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-let Ternary = () => {
-    let [name, setName] = useState('chetan');
-    let [toggle, setToggle] = useState(false);
-
+let Component = () => {
+    let [state, setState] = useState(false);
     return <>
-        {toggle ? <ShowName name={name}/> : <RemoveName />}
-        <button className="btn" onClick={()=>{
-            !toggle ? setToggle(true) : setToggle(false)
-        }}>Show</button>
+        <button className="btn" onClick={() => { setState(!state) }}>
+            toggle
+        </button>
+        {state && <Toggle />}
     </>
 }
 
-let ShowName = ({ name })=>
-{
-    return <h1>Name is {name}</h1>
+let Toggle = () => {
+    useEffect(()=>{
+        console.log("This is useEffect");
+    },[]);
+    return <>
+        <h1>I show you!</h1>
+    </>
 }
 
-let RemoveName = ()=>
-{
-    return 
-}
-
-export default Ternary;
+export default Component;
