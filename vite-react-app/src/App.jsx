@@ -1,7 +1,10 @@
-import Component  from "./Component.jsx"
+import { Home, About } from './../../ProjectStructure/Pages';
 const App = () => {
   return (
-    <Component/>
+    <>
+      <Home />
+      <About />
+    </>
   )
 }
 export default App

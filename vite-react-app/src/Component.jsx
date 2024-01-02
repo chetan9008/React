@@ -1,22 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 let Component = () => {
-    let [state, setState] = useState(false);
+    let [status, setStatus] = useState(false);
+
     return <>
-        <button className="btn" onClick={() => { setState(!state) }}>
-            toggle
-        </button>
-        {state && <Toggle />}
+        <button className="btn" onClick={() => {
+            setStatus(!status)
+        }}>Toggle</button>
+        {status && <AnotherComponent />}
     </>
 }
 
-let Toggle = () => {
+let AnotherComponent = ()=>{
     useEffect(()=>{
-        console.log("This is useEffect");
-    },[]);
-    return <>
-        <h1>I show you!</h1>
-    </>
+        console.log('Into the useEffect');
+        let someFun = ()=>{
+            console.log('scroll');
+        }
+        window.addEventListener('scroll',someFun)
+
+        return ()=>{
+            window.removeEventListener('scroll',someFun)
+        }
+    },[])
+    return <h2>Hi there</h2>
 }
 
 export default Component;
