@@ -1,22 +1,39 @@
-.btn  {
-    padding:1rem;
-    background-color: orange;
+.btn {
+    padding: 1rem;
+    background-color:cornflowerblue;
+    border-radius: 20px;
+    border:none;
 }
 
-body{
-    width:20rem;
+body {
+    width: 20rem;
     margin: 0 auto;
     font-family: 'Courier New', Courier, monospace;
 }
 
 img {
-    width:100%;
+    width: 100%;
     border-radius: 30px;
 }
-a{
-    color:black;
+
+a {
+    color: black;
     text-decoration: none;
 }
+
 a:hover {
-    color:blue;
+    color: blue;
+}
+
+.form .form-row {
+    margin: 20px 0px;
+}
+
+.form {
+    font-size: 1.5rem;
+}
+
+.form input {
+    font-size: 1.5rem;
+    height: 1.5rem;
 }

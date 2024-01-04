@@ -1,29 +1,18 @@
-import { useState, useEffect } from "react";
-
-let Component = () => {
-    let [status, setStatus] = useState(false);
-
-    return <>
-        <button className="btn" onClick={() => {
-            setStatus(!status)
-        }}>Toggle</button>
-        {status && <AnotherComponent />}
-    </>
+const Component = () => {
+    return (
+        <div>
+            <form className="form">
+                <div className="form-row">
+                    <label htmlFor="Name">Name</label><br/>
+                    <input type="text" id="Name" />
+                </div>
+                <div className="form-row">
+                    <label htmlFor="Email">Email</label><br />
+                    <input type="email" id="Email" />
+                </div>
+                <button type="submit" className="btn">Submit</button>
+            </form>
+        </div>
+    )
 }
-
-let AnotherComponent = ()=>{
-    useEffect(()=>{
-        console.log('Into the useEffect');
-        let someFun = ()=>{
-            console.log('scroll');
-        }
-        window.addEventListener('scroll',someFun)
-
-        return ()=>{
-            window.removeEventListener('scroll',someFun)
-        }
-    },[])
-    return <h2>Hi there</h2>
-}
-
-export default Component;
+export default Component
