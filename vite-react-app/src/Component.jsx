@@ -1,48 +1,31 @@
 import { useState } from "react"
-import { person } from './data';
+let FrameWork = ['react','angular','vue'];
 const Component = () => {
-    let [name, setName] = useState('');
-    let [user, setUser] = useState(person);
-    let submitFunction = (e) => {
-        e.preventDefault();
-        if (!name) return;
-        let object = {
-            id: (user.length + 1),
-            name: name
-        }
-        let newUser = [...user, object];
-        setUser(newUser);
-        setName('');
-    }
-    return (
-        <div>
-            <form className="form" onSubmit={submitFunction}>
-                <h4>Add user</h4>
-                <div className="form-row">
-                    <label htmlFor="name" >name</label>
-                    <input type="text" id="name" value={name} onChange={(e) => {
-                        setName(e.target.value)
-                    }} />
-                </div>
-                <button className="btn" type="submit">Add</button>
-            </form>
-            <div>
-                <h2>Users</h2>
-                {user.map((value) => {
-                    return <div key={value.id}>
-                        <h5>{value.name}</h5>
-                        <button className="btn" onClick={() => {
-                            let newUser = user.filter((v) => {
-                                if (v.name !== value.name)
-                                    return true;
-                            })
-                            console.log(newUser);
-                            setUser(newUser);
-                        }}>remove</button>
-                    </div>
-                })}
+    let [agree,setAgree] = useState(false);
+    let [list,setList] = useState('react');
+  return (
+    <div>
+        <form className="form">
+            <div className="form-row">
+                <label htmlFor="checkbox">I Agree</label>
+                <input type="checkbox" id="checkbox" checked={agree} onChange={(e)=>{
+                    console.log(e.target.checked);
+                    setAgree(e.target.checked);
+                }}/>
             </div>
-        </div>
-    )
+            <div className="form-row">
+                <label htmlFor="list">FrameWork</label>
+                <select name="list" id="list" value={list} onChange={(e)=>{
+                    console.log(e.target.value);
+                    setList(e.target.value)
+                }}>
+                    {FrameWork.map((value,index)=>{
+                        return <option key={index}>{value}</option>
+                    })}
+                </select>
+            </div>
+        </form>
+    </div>
+  )
 }
 export default Component
