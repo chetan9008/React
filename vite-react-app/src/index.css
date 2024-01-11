@@ -1,9 +1,18 @@
 .btn {
     padding: 1rem;
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
     border-radius: 20px;
-    border:none;
+    border: none;
 }
+
+.btn:hover {
+    opacity: .9;
+}
+
+.active {
+    padding:.9rem;
+}
+
 
 body {
     width: 20rem;
