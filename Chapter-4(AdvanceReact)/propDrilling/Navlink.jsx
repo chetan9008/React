@@ -1,5 +1,5 @@
 import UserContainer from './UserContainer';
-const Navlink = () => {
+const Navlink = ({user,logout}) => {
   return (
     <>
       <div className="navlink">
@@ -9,7 +9,7 @@ const Navlink = () => {
           <li>Carrer</li>
         </ul>
       </div>
-      <UserContainer/>
+      <UserContainer user={user} logout={logout} />
     </>
   );
 };
