@@ -1,5 +1,5 @@
 import Component from "./Component"
-import "./../../MainComponents/navbar.css";
+import "./index.css";
 const App = () => {
   return (
     <Component />

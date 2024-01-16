@@ -1,35 +1,28 @@
 //useState
-import { useReducer, useState } from "react";
+import { useState } from "react";
 import React from "react";
 import { person } from "./data";
-
-let reducer = () => {};
-
-let defaultState = {
-  people: person,
-};
-
 function App() {
-  let [state, dispatch] = useReducer(reducer, defaultState);
+  let [people, setPerson] = React.useState(person);
   let clearAll = () => {
-    // setPerson([]);
+    setPerson([]);
   };
   let clearOne = (name) => {
-    // let items = people.filter((value) => name.id !== value.id);
-    // console.log(items);
-    // setPerson(items);
+    let items = people.filter((value) => name.id !== value.id);
+    console.log(items);
+    setPerson(items);
   };
   let resetFunction = () => {
-    // setPerson(person);
+    setPerson(person);
   };
   return (
     <>
-      {state.people.map((value) => {
+      {people.map((value) => {
         return (
           <List {...value} key={value.id} clearOne={clearOne} value={value} />
         );
       })}
-      {state.people.length === 0 ? (
+      {people.length === 0 ? (
         <button onClick={resetFunction} className="btn">
           Reset
         </button>
