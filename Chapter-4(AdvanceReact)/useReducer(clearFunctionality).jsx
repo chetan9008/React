@@ -14,11 +14,8 @@ const RESET = "RESET";
 let reducer = (state, action) => {
   action = action.type;
   switch (action) {
-    case CLEAR:
+    case "CLEAR":
       return { ...state, people: [] };
-      break;
-    case RESET:
-      return { ...state, people: person };
       break;
     default:
       // return state;
@@ -29,16 +26,16 @@ let reducer = (state, action) => {
 function App() {
   let [state, dispatch] = useReducer(reducer, defaultState);
   let clearAll = () => {
-    dispatch({ type: CLEAR });
+    dispatch({ type: "CLEAR" });
     // setPerson([]);
   };
   let clearOne = (name) => {
+    dispatch({ type: "claer" });
     // let items = people.filter((value) => name.id !== value.id);
     // console.log(items);
     // setPerson(items);
   };
   let resetFunction = () => {
-    dispatch({ type: RESET });
     // setPerson(person);
   };
   return (
