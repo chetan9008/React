@@ -1,80 +1,22 @@
-//useState
-import { useReducer, useState } from "react";
-import React from "react";
+import { useState } from "react";
+import List from "../../Chapter-4(AdvanceReact)/performanceIssue/List";
 import { person } from "./data";
-
-let defaultState = {
-  people: person,
-};
-
-const CLEAR = "CLEAR";
-const REMOVE = "REMOVE";
-const RESET = "RESET";
-
-let reducer = (state, action) => {
-  action = action.type;
-  switch (action) {
-    case CLEAR:
-      return { ...state, people: [] };
-      break;
-    case RESET:
-      return { ...state, people: person };
-      break;
-    default:
-      // return state;
-      throw new Error(`action type "${action}" doesn't match`);
-  }
-};
-
-function App() {
-  let [state, dispatch] = useReducer(reducer, defaultState);
-  let clearAll = () => {
-    dispatch({ type: CLEAR });
-    // setPerson([]);
-  };
-  let clearOne = (name) => {
-    // let items = people.filter((value) => name.id !== value.id);
-    // console.log(items);
-    // setPerson(items);
-  };
-  let resetFunction = () => {
-    dispatch({ type: RESET });
-    // setPerson(person);
-  };
+const Component = () => {
+  let [count, setCount] = useState(0);
+  let [people, setPeople] = useState(person);
   return (
-    <>
-      {state.people.map((value) => {
-        return (
-          <List {...value} key={value.id} clearOne={clearOne} value={value} />
-        );
-      })}
-      {state.people.length === 0 ? (
-        <button onClick={resetFunction} className="btn">
-          Reset
-        </button>
-      ) : (
-        <button onClick={clearAll} className="btn">
-          RemoveAll
-        </button>
-      )}
-    </>
-  );
-}
-
-let List = ({ name, clearOne, value }) => {
-  return (
-    <>
-      <p>{name}</p>
+    <div>
+      <h2>Value : {count}</h2>
       <button
         className="btn"
         onClick={() => {
-          clearOne(value);
+          setCount((count = count + 1));
         }}
       >
-        remove
+        Increase
       </button>
-    </>
+      <List people={people} />
+    </div>
   );
 };
-
-export default App;
+export default Component;
