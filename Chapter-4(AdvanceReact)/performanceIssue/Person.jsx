@@ -1,5 +1,5 @@
 const Person = ({name}) => {
-    console.log('Render');
+  console.log('Render');
   return (
       <h2>{name}</h2>
   )
