@@ -1,18 +1,28 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { person } from "./data";
-import List from "../../Chapter-4(AdvanceReact)/performance(challenge)/List";
-import Form from "../../Chapter-4(AdvanceReact)/performance(challenge)/Form";
+import List from "../../Chapter-4(AdvanceReact)/react.memo/List";
 const Component = () => {
   const [people, setPeople] = useState(person);
-  const addPerson = (name) => {
-    const fakeId = Date.now();
-    const newPerson = { id: fakeId, name };
-    setPeople([...people, newPerson]);
-  };
+  const [count, setCount] = useState(0);
+
+  let removePerson = useCallback(
+    (id) => {
+      let newPerson = people.filter((value) => value.id !== id);
+      setPeople(newPerson);
+    },
+    [people]
+  );
   return (
     <section>
-      <Form addPerson={addPerson} />
-      <List people={people} />
+      <button
+        className="btn"
+        onClick={() => {
+          setCount(count + 1);
+        }}
+      >
+        <h1>Increase ({count})</h1>
+      </button>
+      <List people={people} removePerson={removePerson} />
     </section>
   );
 };
