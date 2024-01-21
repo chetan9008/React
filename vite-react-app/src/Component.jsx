@@ -1,29 +1,27 @@
-import { useState, useCallback } from "react";
-import { person } from "./data";
-import List from "../../Chapter-4(AdvanceReact)/react.memo/List";
+import { useState } from "react";
 const Component = () => {
-  const [people, setPeople] = useState(person);
-  const [count, setCount] = useState(0);
-
-  let removePerson = useCallback(
-    (id) => {
-      let newPerson = people.filter((value) => value.id !== id);
-      setPeople(newPerson);
-    },
-    [people]
-  );
+  const [text, setText] = useState("");
+  const [items, setItems] = useState([]);
   return (
-    <section>
-      <button
-        className="btn"
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        <h1>Increase ({count})</h1>
-      </button>
-      <List people={people} removePerson={removePerson} />
-    </section>
+    <div>
+      <form action="" className="form">
+        <div className="form-row">
+          <label htmlFor="text"></label>
+          <input
+            type="text"
+            id="text"
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+          />
+        </div>
+      </form>
+      <h4>Items Below</h4>
+      {items.map((value) => {
+        <h2>{value}</h2>;
+      })}
+    </div>
   );
 };
 export default Component;
