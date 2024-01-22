@@ -1,22 +1,14 @@
-let form = document.querySelector('.form');
+let string = "chetan";
+console.log(Array.from(string));
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // let formData = new FormData(e.currentTarget);
-    // console.log(formData);
-    // console.log(...formData.entries());
-    // console.log(...formData.keys());
-    // console.log(...formData.values());
-    // formData.forEach((value)=>{
-    //     console.log(value);
-    // })
-    // for(let [key,value] of formData)
-    // {
-    //     console.log(`key is ${key} and value is ${value}`);
-    // }
+let char = Array.from(string);
+char.filter((value) => {
+  if (value == "e") return true;
+});
+console.log(char);
 
-    let formData = new FormData(e.currentTarget);
-    let json = Object.fromEntries(formData);
-    console.log(json);
-
+let array = Array.from({ length: 10 }, (_,index) => {
+    return index + 1;
 })
+
+console.log(array);

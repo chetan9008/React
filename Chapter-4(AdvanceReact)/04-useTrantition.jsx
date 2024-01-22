@@ -1,14 +1,7 @@
 import { useState, useTransition } from "react";
-import { lazy, Suspense } from "react";
-
-let SlowComponent = lazy(() =>
-  import("../../Chapter-4(AdvanceReact)/Suspence API/SlowComponent")
-);
-
 const LatestReact = () => {
   const [text, setText] = useState("");
   const [items, setItems] = useState([]);
-  let [status, setStatus] = useState(false);
   let [isPending, startTrantition] = useTransition();
   const handleChange = (e) => {
     setText(e.target.value);
@@ -48,13 +41,6 @@ const LatestReact = () => {
         >
           {items}
         </div>
-      )}
-      <button onClick={() => setStatus(!status)}>Toggle</button>
-      <br></br>
-      {status && (
-        <Suspense fallback={<h4>Loading...</h4>}>
-          <SlowComponent />
-        </Suspense>
       )}
     </section>
   );
