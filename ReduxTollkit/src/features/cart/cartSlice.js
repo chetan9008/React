@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import cartItems from "./../../cartItems";
+import { closeModal, openModal } from "../modal/modalSlice";
 
 let url = "https://course-api.com/react-useReducer-cart-project";
 
@@ -9,15 +10,23 @@ let url = "https://course-api.com/react-useReducer-cart-project";
 //     .catch((error) => console.log(error));
 // });
 
-export let getCartItems = createAsyncThunk("cart/getCartItems", async () => {
-  try {
-    let result = await fetch(url);
-    let json = await result.json();
-    return json;
-  } catch (error) {
-    console.log(error);
+export let getCartItems = createAsyncThunk(
+  "cart/getCartItems",
+  async (argument, thunkAPI) => {
+    try {
+      let result = await fetch(url);
+      let json = await result.json();
+      console.log(argument);
+      console.log(thunkAPI.getState());
+      thunkAPI.dispatch(openModal());
+      thunkAPI.dispatch(closeModal());
+      return json;
+    } catch (error) {
+      // console.log(error);
+      return thunkAPI.rejectWithValue("");
+    }
   }
-});
+);
 
 const initialState = {
   cartItems: [],
@@ -61,17 +70,32 @@ const cartSlice = createSlice({
       state.total = total;
     },
   },
-  extraReducers: {
-    [getCartItems.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [getCartItems.fulfilled]: (state, action) => {
-      state.isLoading = false;
-      state.cartItems = action.payload;
-    },
-    [getCartItems.rejected]: (state, action) => {
-      state.isLoading = false;
-    },
+  // extraReducers: {
+  //   [getCartItems.pending]: (state) => {
+  //     state.isLoading = true;
+  //   },
+  //   [getCartItems.fulfilled]: (state, action) => {
+  //     state.isLoading = false;
+  //     state.cartItems = action.payload;
+  //   },
+  //   [getCartItems.rejected]: (state, action) => {
+  //     console.log(action);
+  //     state.isLoading = false;
+  //   },
+  // },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCartItems.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getCartItems.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.cartItems = action.payload;
+      })
+      .addCase(getCartItems.rejected, (state, action) => {
+        console.log(action);
+        state.isLoading = false;
+      });
   },
 });
 
