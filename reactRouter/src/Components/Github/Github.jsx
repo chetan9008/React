@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Github = () => {
-  let [object, setObject] = useState([]);
-  useEffect(() => {
-    let fetchData = async () => {
-      let response = await fetch("https://api.github.com/users/shradha-khapra");
-      let data = await response.json();
-      setObject(data);
-    };
-    object = fetchData();
-  }, []);
+  let object = useLoaderData();
+  // let [object, setObject] = useState([]);
+  // useEffect(() => {
+  //   let fetchData = async () => {
+  //     let response = await fetch("https://api.github.com/users/shradha-khapra");
+  //     let data = await response.json();
+  //     setObject(data);
+  //   };
+  //   object = fetchData();
+  // }, []);
   console.log(object);
   let { followers, avatar_url, name } = object;
   return (
@@ -27,3 +29,8 @@ const Github = () => {
   );
 };
 export default Github;
+
+export const githubLoader = async () => {
+  let response = await fetch("https://api.github.com/users/shradha-khapra");
+  return response.json();
+};
