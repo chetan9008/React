@@ -1,0 +1,31 @@
+.task {
+  display: grid;
+  padding: 0.5rem;
+  grid-template-columns: 4fr 2fr 2fr 2fr;
+  background-color: black;
+  margin: 20px;
+  border-radius: 20px;
+}
+.up-btn,
+.down-btn {
+  width: 5rem;
+  height: 5rem;
+  margin-left: 1rem;
+}
+.remove-btn {
+  width: 6rem;
+  height: 5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.input {
+  font-size: 35px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.add-btn {
+  width: 5rem;
+  height: 3rem;
+}
