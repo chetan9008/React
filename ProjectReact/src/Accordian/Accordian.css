@@ -1,0 +1,11 @@
+.brown-div {
+  background-color: burlywood;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.grid {
+    margin-top: 20px;
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+}

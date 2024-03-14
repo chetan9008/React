@@ -1,9 +1,9 @@
 import "./App.css";
-import ToDoList from "./ToDoListProject/ToDoList";
+import Accordian from "./Accordian/Accordian";
 function App() {
   return (
     <>
-      <ToDoList />
+      <Accordian />
     </>
   );
 }
