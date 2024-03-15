@@ -1,9 +1,9 @@
 import "./App.css";
-import Accordian from "./Accordian/Accordian";
+import StarRating from "./StarRating";
 function App() {
   return (
     <>
-      <Accordian />
+      <StarRating />
     </>
   );
 }
