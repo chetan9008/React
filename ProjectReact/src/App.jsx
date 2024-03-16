@@ -1,9 +1,9 @@
 import "./App.css";
-import StarRating from "./StarRating";
+import LoadMore from "./LoadMore";
 function App() {
   return (
     <>
-      <StarRating />
+      <LoadMore />
     </>
   );
 }
