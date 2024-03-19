@@ -1,9 +1,9 @@
 import "./App.css";
-import LoadMore from "./LoadMore";
+import QRCodeGenerator from "./QRCodeGenerator";
 function App() {
   return (
     <>
-      <LoadMore />
+      <QRCodeGenerator/>
     </>
   );
 }
