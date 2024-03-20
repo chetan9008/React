@@ -1,9 +1,9 @@
 import "./App.css";
-import QRCodeGenerator from "./QRCodeGenerator";
+import ScrollIndicator from "./Scroll Indicator";
 function App() {
   return (
     <>
-      <QRCodeGenerator/>
+      <ScrollIndicator />
     </>
   );
 }
