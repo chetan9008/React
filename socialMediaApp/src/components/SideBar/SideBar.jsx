@@ -58,6 +58,26 @@ const SideBar = () => {
             <img src={Aman} alt="" className="sideBarFriendImg" />
             <span className="sideBarFriendName">Aman</span>
           </li>
+          <li className="sideBarFriend">
+            <img src={Aman} alt="" className="sideBarFriendImg" />
+            <span className="sideBarFriendName">Aman</span>
+          </li>
+          <li className="sideBarFriend">
+            <img src={Aman} alt="" className="sideBarFriendImg" />
+            <span className="sideBarFriendName">Aman</span>
+          </li>
+          <li className="sideBarFriend">
+            <img src={Aman} alt="" className="sideBarFriendImg" />
+            <span className="sideBarFriendName">Aman</span>
+          </li>
+          <li className="sideBarFriend">
+            <img src={Aman} alt="" className="sideBarFriendImg" />
+            <span className="sideBarFriendName">Aman</span>
+          </li>
+          <li className="sideBarFriend">
+            <img src={Aman} alt="" className="sideBarFriendImg" />
+            <span className="sideBarFriendName">Aman</span>
+          </li>
         </ul>
       </div>
     </div>
