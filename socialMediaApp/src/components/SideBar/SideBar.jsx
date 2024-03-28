@@ -8,7 +8,8 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import WorkIcon from "@mui/icons-material/Work";
 import EventIcon from "@mui/icons-material/Event";
 import SchoolIcon from "@mui/icons-material/School";
-import Aman from "./../../assets/person/2.jpeg";
+import { Users } from "../../dummyData";
+import CloseFriend from "../../closeFriend/CloseFriend";
 const SideBar = () => {
   return (
     <div className="sidebar">
@@ -53,32 +54,9 @@ const SideBar = () => {
         </ul>
         <button className="sideBarButton">Show More</button>
         <hr className="sideBarHR" />
-        <ul className="sideBarFriendLIst">
-          <li className="sideBarFriend">
-            <img src={Aman} alt="" className="sideBarFriendImg" />
-            <span className="sideBarFriendName">Aman</span>
-          </li>
-          <li className="sideBarFriend">
-            <img src={Aman} alt="" className="sideBarFriendImg" />
-            <span className="sideBarFriendName">Aman</span>
-          </li>
-          <li className="sideBarFriend">
-            <img src={Aman} alt="" className="sideBarFriendImg" />
-            <span className="sideBarFriendName">Aman</span>
-          </li>
-          <li className="sideBarFriend">
-            <img src={Aman} alt="" className="sideBarFriendImg" />
-            <span className="sideBarFriendName">Aman</span>
-          </li>
-          <li className="sideBarFriend">
-            <img src={Aman} alt="" className="sideBarFriendImg" />
-            <span className="sideBarFriendName">Aman</span>
-          </li>
-          <li className="sideBarFriend">
-            <img src={Aman} alt="" className="sideBarFriendImg" />
-            <span className="sideBarFriendName">Aman</span>
-          </li>
-        </ul>
+        {Users.map((user) => (
+          <CloseFriend {...user} key={user.id} />
+        ))}
       </div>
     </div>
   );
