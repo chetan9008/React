@@ -4,7 +4,14 @@ import Like from "./../../assets/like.png";
 import Heart from "./../../assets/heart.png";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Users } from "../../dummyData";
+import { useState } from "react";
 const Post = ({ id, desc, photo, date, like, comment }) => {
+  let [likeState, setLike] = useState(like);
+  let [isLiked, setIsLiked] = useState(false);
+  let likeHandler = () => {
+    setLike(isLiked ? likeState - 1 : likeState + 1);
+    setIsLiked(!isLiked);
+  };
   return (
     <div className="post">
       <div className="postWrapper">
@@ -30,9 +37,19 @@ const Post = ({ id, desc, photo, date, like, comment }) => {
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <img src={Like} alt={Like} className="likeImg" />
-            <img src={Heart} alt={Heart} className="likeImg" />
-            <span className="postLikeCounter">{like} likes</span>
+            <img
+              src={Like}
+              alt={Like}
+              className="likeImg"
+              onClick={likeHandler}
+            />
+            <img
+              src={Heart}
+              alt={Heart}
+              className="likeImg"
+              onClick={likeHandler}
+            />
+            <span className="postLikeCounter">{likeState} likes</span>
           </div>
           <div className="postBottomRight">
             <div className="postCommentText">{comment} Comments</div>

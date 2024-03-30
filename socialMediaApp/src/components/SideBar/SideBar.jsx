@@ -9,7 +9,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import EventIcon from "@mui/icons-material/Event";
 import SchoolIcon from "@mui/icons-material/School";
 import { Users } from "../../dummyData";
-import CloseFriend from "../../closeFriend/CloseFriend";
+import CloseFriend from "./../closeFriend/CloseFriend";
 const SideBar = () => {
   return (
     <div className="sidebar">
