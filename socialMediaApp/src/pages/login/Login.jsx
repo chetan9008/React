@@ -1,10 +1,14 @@
 import "./login.css";
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
-          <h3 className="loginLogo">Social Media</h3>
+          <Link to="/">
+            <h3 className="loginLogo">Social Media</h3>
+          </Link>
           <span className="loginDesc">
             Connect with friends and the world around you on Lamasocial.
           </span>
@@ -19,9 +23,11 @@ const Login = () => {
             />
             <button className="loginButton">Log In</button>
             <span className="loginForgot">Forgot Password</span>
-            <button className="loginRegisterButton">
-              Create a New Account
-            </button>
+            <Link to="/register" className="loginRegisterLink">
+              <button className="loginRegisterButton">
+                Create a New Account
+              </button>
+            </Link>
           </form>
         </div>
       </div>

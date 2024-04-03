@@ -74,6 +74,11 @@
   width: 60%;
   align-self: center;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginRegisterButton > button {
   border-radius: 10px;
   border: none;
   background-color: #42b72a;

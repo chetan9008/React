@@ -10,12 +10,6 @@ const Feed = () => {
         {Posts.map((user) => (
           <Post {...user} key={user.id} />
         ))}
-        {/* <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post /> */}
       </div>
     </div>
   );

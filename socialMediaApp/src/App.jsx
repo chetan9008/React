@@ -1,16 +1,9 @@
-import { useState } from "react";
 import "./App.css";
-import Home from "./pages/Home/Home";
-import Profile from "./pages/profile/Profile";
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
+import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
-      {/* <Home /> */}
-      {/* <Profile /> */}
-      {/* <Login /> */}
-      <Register />
+      <Outlet />
     </>
   );
 }

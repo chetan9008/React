@@ -3,13 +3,16 @@ import PermMediaIcon from "@mui/icons-material/PermMedia";
 import LabelIcon from "@mui/icons-material/Label";
 import RoomIcon from "@mui/icons-material/Room";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import { Link } from "react-router-dom";
 import First from "./../../assets/person/1.jpeg";
 const Share = () => {
   return (
     <div className="share">
       <div className="shareWrapper">
         <div className="shareTop">
-          <img src={First} alt="" className="shareImage" />
+          <Link to="/profile">
+            <img src={First} alt="" className="shareImage" />
+          </Link>
           <input
             type="text"
             placeholder="What in your mind"
