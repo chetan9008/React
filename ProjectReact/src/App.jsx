@@ -1,9 +1,10 @@
 import "./App.css";
-import ScrollIndicator from "./Scroll Indicator";
+import Weather from "./weatherApp/Components/WeatherApp/Weather.jsx";
+
 function App() {
   return (
     <>
-      <ScrollIndicator />
+      <Weather />
     </>
   );
 }
