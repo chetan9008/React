@@ -1,39 +1,75 @@
-.container{
-    width: 607px;
-    height: 829px;
-    border-radius: 12px;
-    margin:auto;
-    margin-top: 75px;
-    background-image: linear-gradient(180deg,#130754 0%,#3b2f80 100%);
+.container {
+  width: 607px;
+  height: 829px;
+  margin: auto;
+  margin-top: 75px;
+  border-radius: 12px;
+  background-image: linear-gradient(180deg, #130754 0%, #3b2f80 100%);
 }
-.topbar{
-    display: flex;
-
-    justify-content: center;
-    gap: 14px;
-    padding-top: 60px;
+.topbar {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 60px;
 }
-.topbarInput{
-    display: flex;
-    width: 362px;
-    height: 78px;
-    background: #ebfffc;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    padding-left: 40px;
-    color:#626262;
-    font-size: 20px;
-    font-weight: 400;
+.topbarInput {
+  display: flex;
+  width: 362px;
+  height: 78px;
+  background: #ebfffc;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding-left: 40px;
+  color: #626262;
+  font-size: 20px;
+  font-weight: 400;
 }
-.topbarImg{
+.topbarImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  cursor: pointer;
+  object-fit: cover;
+  background: #ebfffc;
+  border-radius: 40px;
+}
+.weatherImg {
+  display: flex;
+  justify-content: center;
+  margin-top: 29px;
+}
+.weatherTem,
+.weatherLocation {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 120px;
+  font-weight: 400;
+}
+.weatherLocation {
+  font-size: 60px;
+}
+.data-container {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  margin-top: 50px;
+}
+.icon {
+    object-fit: contain;
+    margin-top: 5px;
+}
+.element{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 78px;
-    height: 78px;
-    cursor: pointer;
-    object-fit: cover;
-    background: #ebfffc;
-    border-radius: 40px;
+    gap: 10px;
+}
+.data {
+  font-size: 34px;
+  font-weight: 400;
+}
+.text {
+  font-size: 20px;
 }
