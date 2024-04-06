@@ -8,15 +8,33 @@ import humidity from "./../../assests/humidity.png";
 import rain from "./../../assests/rain.png";
 import snow from "./../../assests/snow.png";
 import wind from "./../../assests/wind.png";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 const Weather = () => {
-  let apiKey = "5869f8aa5f0553edd0d26781d6c0af29";
-
   let [location, setLoaction] = useState("");
+  let apiKey = "5869f8aa5f0553edd0d26781d6c0af29";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=Metric&appid=${apiKey}`;
+  let [status, setStatus] = useState(false);
+  let [data, setData] = useState([]);
+  let [loading, setLoading] = useState(false);
 
-  let SearchFun = () => {
+  let SearchFun = async () => {
     if (location === "") return 0;
+    setLoading(true);
+    let response = await fetch(url);
+    let Data = await response.json();
+    if (Data) {
+      setData(Data);
+      setLoading(false);
+    }
+    setStatus(false);
+    console.log(data);
   };
+
+  useEffect(() => {
+    SearchFun();
+  }, [status]);
+
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <div className="container">
@@ -30,14 +48,21 @@ const Weather = () => {
             setLoaction(e.target.value);
           }}
         />
-        <div className="topbarImg">
+        <div
+          className="topbarImg"
+          onClick={() => {
+            setStatus(true);
+          }}
+        >
           <img src={search} alt={search} />
         </div>
       </div>
       <div className="weatherImg">
         <img src={cloud} alt={cloud} />
       </div>
-      <div className="weatherTem">24*c</div>
+      <div className="weatherTem">
+        {data.length === 0 ? "25'c" : data.main.temp}
+      </div>
       <div className="weatherLocation">London</div>
       <div className="data-container">
         <div className="element">
