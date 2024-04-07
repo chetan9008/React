@@ -39,7 +39,13 @@
 .weatherImg {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 29px;
+}
+.weatherImg img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 .weatherTem,
 .weatherLocation {
@@ -59,12 +65,12 @@
   margin-top: 50px;
 }
 .icon {
-    object-fit: contain;
-    margin-top: 5px;
+  object-fit: contain;
+  margin-top: 5px;
 }
-.element{
-    display: flex;
-    gap: 10px;
+.element {
+  display: flex;
+  gap: 10px;
 }
 .data {
   font-size: 34px;
